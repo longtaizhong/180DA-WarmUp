@@ -21,8 +21,8 @@ while(True):
 
     #Convert to hsv, RED
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    lower_red = np.array([0, 50, 20])
-    upper_red = np.array([5, 255, 255])
+    lower_red = np.array([98, 50, 50])
+    upper_red = np.array([139, 255, 255])
     
     
     #Convert to rgb, RED
@@ -43,7 +43,9 @@ while(True):
     
     
     areas = [cv2.contourArea(c) for c in contours]
+    
     max_index = np.argmax(areas)
+        
     cnt=contours[max_index]
     
     x,y,w,h = cv2.boundingRect(cnt)
